@@ -1,0 +1,183 @@
+\stepcounter{mysection}\section{\arabic{mysection} Пример работы реализации}
+
+	Данный пример иллюстрирует работу группы лифтов, где их количество равно 2, в здании с 5 этажами.
+		В ходе работы системы появится два человека в моменты времени $t_2$ и $t_4$ на этажах $e_1$ и $e_0$,
+		и у каждого человека целью будет четвёртый этаж $d_4$.
+
+	Изначально первая кабина находится на первом этаже $e_0$, а вторя на втором $e_1$.
+		Ниже приведён лог показывающий работу системы:
+\begin{lstlisting}[basicstyle=\scriptsize]
+23 May 2018 22:48:41 [40:null] DEBUG Show var: Steps '20' Elev '2' Floors '5' People '2'
+23 May 2018 22:48:41 [40:null] TRACE Start modulation
+23 May 2018 22:48:41 [40:null] DEBUG Init people apprears '[2,4]'
+23 May 2018 22:48:41 [40:null] DEBUG Init people floors '[1,0]'
+23 May 2018 22:48:41 [40:null] DEBUG Init people targets '[4,4]'
+23 May 2018 22:48:41 [40:null] DEBUG Init people waiting '[0,0]'
+23 May 2018 22:48:41 [40:null] DEBUG Init people states '[0,0]'
+23 May 2018 22:48:41 [40:null] DEBUG Init elevators floors '[0,1]'
+23 May 2018 22:48:41 [40:null] WARNING Var 'Step' has null value
+23 May 2018 22:48:41 [40:null] INFO Set first step '0'
+23 May 2018 22:48:41 [40:0] TRACE Start step
+23 May 2018 22:48:41 [40:0] TRACE Finish step
+23 May 2018 22:48:41 [40:1] TRACE Start step
+23 May 2018 22:48:41 [40:1] TRACE Finish step
+23 May 2018 22:48:41 [40:2] TRACE Start step
+23 May 2018 22:48:41 [40:2] INFO A man appears with id '0' on floor with id '1'
+\newpage
+\input{src/theory_part.tex}
+23 May 2018 22:48:41 [40:2] DEBUG Change list 'people_states' with id '0' res:'[1,0]'
+23 May 2018 22:48:41 [40:2] TRACE Putting floor to map
+23 May 2018 22:48:41 [40:2] DEBUG Current distances are '[1,0]'
+23 May 2018 22:48:41 [40:2] DEBUG Current min dist '0' with id '1'
+23 May 2018 22:48:41 [40:2] DEBUG Append to road map '[1,-1]' floor '1'
+23 May 2018 22:48:41 [40:2] DEBUG A man with id '0' has been waiting for '0'
+23 May 2018 22:48:41 [40:2] DEBUG Change list 'people_waiting' with id '0' res:'[1,0]'
+23 May 2018 22:48:41 [40:2] DEBUG Elev floors '[0,1]'
+23 May 2018 22:48:41 [40:2] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:2] DEBUG Current elev '0' road map '[]' people '[]'
+23 May 2018 22:48:41 [40:2] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:2] DEBUG Elevator on '1' has goal '1'
+23 May 2018 22:48:41 [40:2] DEBUG Elevator '1' has reached '1'
+23 May 2018 22:48:41 [40:2] TRACE Manage people
+23 May 2018 22:48:41 [40:2] INFO Going out people '[]' from elev '1'
+23 May 2018 22:48:41 [40:2] TRACE Trace getting_people_in '2'
+23 May 2018 22:48:41 [40:2] TRACE Trace getting_people_in '1'
+23 May 2018 22:48:41 [40:2] DEBUG Change list 'people_states' with id '0' res:'[2,0]'
+23 May 2018 22:48:41 [40:2] DEBUG Append to road map '[-1,4,-1]' floor '4'
+23 May 2018 22:48:41 [40:2] INFO Coming people '[0]' to elev '1'
+23 May 2018 22:48:41 [40:2] DEBUG Current elev '1' road map '[-1]' people '[0]'
+23 May 2018 22:48:41 [40:2] TRACE Finish step
+23 May 2018 22:48:41 [40:3] TRACE Start step
+23 May 2018 22:48:41 [40:3] DEBUG Elev floors '[0,1]'
+23 May 2018 22:48:41 [40:3] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:3] DEBUG Current elev '0' road map '[]' people '[]'
+23 May 2018 22:48:41 [40:3] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:3] DEBUG Elevator on '1' has goal '-1'
+23 May 2018 22:48:41 [40:3] TRACE Elevator '1' is closing the door
+23 May 2018 22:48:41 [40:3] TRACE Change ElevPos '1' Id '1'
+23 May 2018 22:48:41 [40:3] DEBUG Move elevator '1' from '1' to '2'
+23 May 2018 22:48:41 [40:3] DEBUG Current elev '1' road map '[4,-1]' people '[0]'
+23 May 2018 22:48:41 [40:3] TRACE Finish step
+23 May 2018 22:48:41 [40:4] TRACE Start step
+23 May 2018 22:48:41 [40:4] INFO A man appears with id '1' on floor with id '0'
+23 May 2018 22:48:41 [40:4] DEBUG Change list 'people_states' with id '1' res:'[2,1]'
+23 May 2018 22:48:41 [40:4] TRACE Putting floor to map
+23 May 2018 22:48:41 [40:4] DEBUG Current distances are '[0,7]'
+23 May 2018 22:48:41 [40:4] DEBUG Current min dist '0' with id '0'
+23 May 2018 22:48:41 [40:4] DEBUG Append to road map '[0,-1]' floor '0'
+23 May 2018 22:48:41 [40:4] DEBUG A man with id '1' has been waiting for '0'
+23 May 2018 22:48:41 [40:4] DEBUG Change list 'people_waiting' with id '1' res:'[1,1]'
+23 May 2018 22:48:41 [40:4] DEBUG Elev floors '[0,2]'
+23 May 2018 22:48:41 [40:4] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:4] DEBUG Elevator on '0' has goal '0'
+23 May 2018 22:48:41 [40:4] DEBUG Elevator '0' has reached '0'
+23 May 2018 22:48:41 [40:4] TRACE Manage people
+23 May 2018 22:48:41 [40:4] INFO Going out people '[]' from elev '0'
+23 May 2018 22:48:41 [40:4] TRACE Trace getting_people_in '2'
+23 May 2018 22:48:41 [40:4] DEBUG Change list 'people_states' with id '1' res:'[2,2]'
+23 May 2018 22:48:41 [40:4] DEBUG Append to road map '[-1,4,-1]' floor '4'
+23 May 2018 22:48:41 [40:4] TRACE Trace getting_people_in '1'
+23 May 2018 22:48:41 [40:4] INFO Coming people '[1]' to elev '0'
+23 May 2018 22:48:41 [40:4] DEBUG Current elev '0' road map '[-1]' people '[1]'
+23 May 2018 22:48:41 [40:4] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:4] DEBUG Elevator on '2' has goal '4'
+23 May 2018 22:48:41 [40:4] TRACE Change ElevPos '2' Id '1'
+23 May 2018 22:48:41 [40:4] DEBUG Move elevator '1' from '2' to '3'
+23 May 2018 22:48:41 [40:4] DEBUG Current elev '1' road map '[4,-1]' people '[0]'
+23 May 2018 22:48:41 [40:4] TRACE Finish step
+23 May 2018 22:48:41 [40:5] TRACE Start step
+23 May 2018 22:48:41 [40:5] DEBUG Elev floors '[0,3]'
+23 May 2018 22:48:41 [40:5] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:5] DEBUG Elevator on '0' has goal '-1'
+23 May 2018 22:48:41 [40:5] TRACE Elevator '0' is closing the door
+23 May 2018 22:48:41 [40:5] TRACE Change ElevPos '0' Id '0'
+23 May 2018 22:48:41 [40:5] DEBUG Move elevator '0' from '0' to '1'
+23 May 2018 22:48:41 [40:5] DEBUG Current elev '0' road map '[4,-1]' people '[1]'
+23 May 2018 22:48:41 [40:5] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:5] DEBUG Elevator on '3' has goal '4'
+23 May 2018 22:48:41 [40:5] TRACE Change ElevPos '3' Id '1'
+23 May 2018 22:48:41 [40:5] DEBUG Move elevator '1' from '3' to '4'
+23 May 2018 22:48:41 [40:5] DEBUG Current elev '1' road map '[4,-1]' people '[0]'
+23 May 2018 22:48:41 [40:5] TRACE Finish step
+23 May 2018 22:48:41 [40:6] TRACE Start step
+23 May 2018 22:48:41 [40:6] DEBUG Elev floors '[1,4]'
+23 May 2018 22:48:41 [40:6] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:6] DEBUG Elevator on '1' has goal '4'
+23 May 2018 22:48:41 [40:6] TRACE Change ElevPos '1' Id '0'
+23 May 2018 22:48:41 [40:6] DEBUG Move elevator '0' from '1' to '2'
+23 May 2018 22:48:41 [40:6] DEBUG Current elev '0' road map '[4,-1]' people '[1]'
+23 May 2018 22:48:41 [40:6] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:6] DEBUG Elevator on '4' has goal '4'
+23 May 2018 22:48:41 [40:6] DEBUG Elevator '1' has reached '4'
+23 May 2018 22:48:41 [40:6] TRACE Manage people
+23 May 2018 22:48:41 [40:6] DEBUG Change list 'people_states' with id '0' res:'[3,2]'
+23 May 2018 22:48:41 [40:6] INFO Going out people '[0]' from elev '1'
+23 May 2018 22:48:41 [40:6] TRACE Trace getting_people_in '2'
+23 May 2018 22:48:41 [40:6] TRACE Trace getting_people_in '1'
+23 May 2018 22:48:41 [40:6] INFO Coming people '[]' to elev '1'
+23 May 2018 22:48:41 [40:6] DEBUG Current elev '1' road map '[-1]' people '[]'
+23 May 2018 22:48:41 [40:6] TRACE Finish step
+23 May 2018 22:48:41 [40:7] TRACE Start step
+23 May 2018 22:48:41 [40:7] DEBUG Elev floors '[2,4]'
+23 May 2018 22:48:41 [40:7] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:7] DEBUG Elevator on '2' has goal '4'
+23 May 2018 22:48:41 [40:7] TRACE Change ElevPos '2' Id '0'
+23 May 2018 22:48:41 [40:7] DEBUG Move elevator '0' from '2' to '3'
+23 May 2018 22:48:41 [40:7] DEBUG Current elev '0' road map '[4,-1]' people '[1]'
+23 May 2018 22:48:41 [40:7] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:7] DEBUG Elevator on '4' has goal '-1'
+23 May 2018 22:48:41 [40:7] TRACE Elevator '1' is closing the door
+23 May 2018 22:48:41 [40:7] DEBUG Current elev '1' road map '[]' people '[]'
+23 May 2018 22:48:41 [40:7] TRACE Finish step
+23 May 2018 22:48:41 [40:8] TRACE Start step
+23 May 2018 22:48:41 [40:8] DEBUG Elev floors '[3,4]'
+23 May 2018 22:48:41 [40:8] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:8] DEBUG Elevator on '3' has goal '4'
+23 May 2018 22:48:41 [40:8] TRACE Change ElevPos '3' Id '0'
+23 May 2018 22:48:41 [40:8] DEBUG Move elevator '0' from '3' to '4'
+23 May 2018 22:48:41 [40:8] DEBUG Current elev '0' road map '[4,-1]' people '[1]'
+23 May 2018 22:48:41 [40:8] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:8] DEBUG Current elev '1' road map '[]' people '[]'
+23 May 2018 22:48:41 [40:8] TRACE Finish step
+23 May 2018 22:48:41 [40:9] TRACE Start step
+23 May 2018 22:48:41 [40:9] DEBUG Elev floors '[4,4]'
+23 May 2018 22:48:41 [40:9] TRACE moving_elevators NElev '2' Id '0'
+23 May 2018 22:48:41 [40:9] DEBUG Elevator on '4' has goal '4'
+23 May 2018 22:48:41 [40:9] DEBUG Elevator '0' has reached '4'
+23 May 2018 22:48:41 [40:9] TRACE Manage people
+23 May 2018 22:48:41 [40:9] DEBUG Change list 'people_states' with id '1' res:'[3,3]'
+23 May 2018 22:48:41 [40:9] INFO Going out people '[1]' from elev '0'
+23 May 2018 22:48:41 [40:9] TRACE Trace getting_people_in '2'
+23 May 2018 22:48:41 [40:9] TRACE Trace getting_people_in '1'
+23 May 2018 22:48:41 [40:9] INFO Coming people '[]' to elev '0'
+23 May 2018 22:48:41 [40:9] DEBUG Current elev '0' road map '[-1]' people '[]'
+23 May 2018 22:48:41 [40:9] TRACE moving_elevators NElev '2' Id '1'
+23 May 2018 22:48:41 [40:9] DEBUG Current elev '1' road map '[]' people '[]'
+23 May 2018 22:48:41 [40:9] TRACE Finish step
+23 May 2018 22:48:41 [40:10] TRACE Start step
+23 May 2018 22:48:41 [40:10] TRACE Finish step
+23 May 2018 22:48:41 [40:11] TRACE Start step
+23 May 2018 22:48:41 [40:11] TRACE Finish step
+23 May 2018 22:48:41 [40:12] TRACE Start step
+23 May 2018 22:48:41 [40:12] TRACE Finish step
+23 May 2018 22:48:41 [40:13] TRACE Start step
+23 May 2018 22:48:41 [40:13] TRACE Finish step
+23 May 2018 22:48:41 [40:14] TRACE Start step
+23 May 2018 22:48:41 [40:14] TRACE Finish step
+23 May 2018 22:48:41 [40:15] TRACE Start step
+23 May 2018 22:48:41 [40:15] TRACE Finish step
+23 May 2018 22:48:41 [40:16] TRACE Start step
+23 May 2018 22:48:41 [40:16] TRACE Finish step
+23 May 2018 22:48:41 [40:17] TRACE Start step
+23 May 2018 22:48:41 [40:17] TRACE Finish step
+23 May 2018 22:48:41 [40:18] TRACE Start step
+23 May 2018 22:48:41 [40:18] TRACE Finish step
+23 May 2018 22:48:41 [40:19] TRACE Start step
+23 May 2018 22:48:41 [40:19] TRACE Finish step
+23 May 2018 22:48:41 [40:null] TRACE Finith modulation
+23 May 2018 22:48:41 [40:null] TRACE Show statistics
+23 May 2018 22:48:41 [40:null] INFO People status results: '[3,3]'
+23 May 2018 22:48:41 [40:null] INFO People waiting results: '[1,1]'
+\end{lstlisting}
+
+	Изучив выше изложенный журнал, можно увидеть результат, что каждый человек доставлен и ожидание составило не более одной единицы времени.
